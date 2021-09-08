@@ -16,7 +16,7 @@ export default defineConfig({
   },
   layout: {
     // https://umijs.org/zh-CN/plugins/plugin-layout
-    locale: true,
+    locale: false,
     siderWidth: 208,
     ...defaultSettings,
   },
@@ -66,7 +66,24 @@ export default defineConfig({
     },
   ],
   nodeModulesTransform: { type: 'none' },
-  mfsu: {},
+  mfsu: {
+    mfName: 'mfMain',
+  },
   webpack5: {},
   exportStatic: {},
+  mountElementId: 'root',
+  qiankun: {
+    master: {
+      apps: [
+        {
+          name: 'reactApp', // 唯一 id
+          entry: 'http://localhost:8091', // html entry
+        },
+        {
+          name: 'vueApp',
+          entry: 'http://localhost:8092',
+        },
+      ],
+    },
+  },
 });

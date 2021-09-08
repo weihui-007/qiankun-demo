@@ -49,6 +49,16 @@
     component: './TableList',
   },
   {
+    name: 'reactApp',
+    path: '/reactApp',
+    microApp: 'reactApp',
+  },
+  {
+    name: 'vueApp',
+    path: '/vueApp',
+    microApp: 'vueApp',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },
