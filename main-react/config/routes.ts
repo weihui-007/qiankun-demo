@@ -20,20 +20,20 @@
   },
   {
     path: '/welcome',
-    name: 'welcome',
+    name: '欢迎',
     icon: 'smile',
     component: './Welcome',
   },
   {
     path: '/admin',
-    name: 'admin',
+    name: '管理页',
     icon: 'crown',
     access: 'canAdmin',
     component: './Admin',
     routes: [
       {
         path: '/admin/sub-page',
-        name: 'sub-page',
+        name: '二级管理页',
         icon: 'smile',
         component: './Welcome',
       },
@@ -43,18 +43,38 @@
     ],
   },
   {
-    name: 'list.table-list',
+    name: '查询表格',
     icon: 'table',
     path: '/list',
     component: './TableList',
   },
   {
-    name: 'reactApp',
+    name: 'react子应用',
     path: '/reactApp',
     microApp: 'reactApp',
+    routes: [
+      {
+        path: '/reactApp/Welcome',
+        name: 'Welcome',
+        icon: 'smile',
+        // routes: [
+        //   {
+        //     path: '/reactApp/reactA/reactAb',
+        //     name: 'reactAb',
+        //     icon: 'smile',
+        //     component: './Welcome',
+        //   },
+        // ],
+      },
+      {
+        name: 'table-list',
+        icon: 'table',
+        path: '/reactApp/list',
+      },
+    ],
   },
   {
-    name: 'vueApp',
+    name: 'vue子应用',
     path: '/vueApp',
     microApp: 'vueApp',
   },

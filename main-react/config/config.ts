@@ -71,7 +71,6 @@ export default defineConfig({
   },
   webpack5: {},
   exportStatic: {},
-  mountElementId: 'root',
   qiankun: {
     master: {
       apps: [
