@@ -50,33 +50,49 @@
   },
   {
     name: 'react子应用',
-    path: '/reactApp',
+    path: '/subreact',
     microApp: 'reactApp',
     routes: [
       {
-        path: '/reactApp/Welcome',
         name: 'Welcome',
         icon: 'smile',
-        // routes: [
-        //   {
-        //     path: '/reactApp/reactA/reactAb',
-        //     name: 'reactAb',
-        //     icon: 'smile',
-        //     component: './Welcome',
-        //   },
-        // ],
+        path: '/subreact/Welcome',
       },
       {
         name: 'table-list',
         icon: 'table',
-        path: '/reactApp/list',
+        path: '/subreact/list',
       },
     ],
   },
   {
     name: 'vue子应用',
-    path: '/vueApp',
+    path: '/subvue',
     microApp: 'vueApp',
+    routes: [
+      {
+        name: 'Dashboard',
+        icon: 'smile',
+        path: '/subvue/dashboard',
+      },
+      {
+        name: 'Example',
+        icon: 'table',
+        path: '/subvue/example',
+        routes: [
+          {
+            name: 'Table',
+            icon: 'table',
+            path: '/subvue/example/table',
+          },
+          {
+            name: 'Tree',
+            icon: 'table',
+            path: '/subvue/example/tree',
+          },
+        ],
+      },
+    ],
   },
   {
     path: '/',

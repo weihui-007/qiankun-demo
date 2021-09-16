@@ -13,6 +13,7 @@ import { useIntl, Link, history, FormattedMessage, SelectLang, useModel } from '
 import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
 import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+import Cookies from 'js-cookie'
 
 import styles from './index.less';
 
@@ -57,6 +58,7 @@ const Login: React.FC = () => {
           id: 'pages.login.success',
           defaultMessage: '登录成功！',
         });
+        Cookies.set('vue_admin_template_token', 'admin-token')
         message.success(defaultLoginSuccessMessage);
         await fetchUserInfo();
         /** 此方法会跳转到 redirect 参数所在的位置 */

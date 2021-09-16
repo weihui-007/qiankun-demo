@@ -13,6 +13,11 @@ export default {
       changeOrigin: true,
       pathRewrite: { '^': '' },
     },
+    '/dev-api/vue-admin-template': {
+      target: 'http://localhost:8092',
+      changeOrigin: true,
+      pathRewrite: { '^': '' },
+    },
   },
   test: {
     '/api/': {
