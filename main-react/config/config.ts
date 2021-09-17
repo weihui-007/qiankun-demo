@@ -11,7 +11,7 @@ const { REACT_APP_ENV } = process.env;
 export default defineConfig({
   hash: true,
   history: {
-    type: 'hash'
+    type: 'hash',
   },
   antd: {},
   dva: {
@@ -86,6 +86,7 @@ export default defineConfig({
           entry: 'http://localhost:8092',
         },
       ],
+      sandbox: false,
     },
   },
 });

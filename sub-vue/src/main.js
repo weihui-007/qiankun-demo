@@ -45,17 +45,40 @@ Vue.config.productionTip = false
 // 声明一个变量，可以用于卸载
 let instance = null
 // 挂载到自己的html中，基座会拿到这个挂载后的html插入进去
-function render() {
+function render(props = {}) {
+  const { container } = props
+
+  if (window.__POWERED_BY_QIANKUN__) {
+    router.beforeEach((to, from, next) => {
+      console.log('tototo:', to)
+      if (!to.path.includes('subvue')) {
+        next({
+          path: '/subvue' + to.path,
+          query: to.query
+        })
+      } else {
+        next()
+      }
+    })
+  }
+
   instance = new Vue({
     router,
     store,
     render: h => h(App)
-  }).$mount('#app')
+  }).$mount(container ? container.querySelector('#app') : '#app')
 }
-// 判断是否是qiankun环境
+
+// // webpack打包公共文件路径
+// if (window.__POWERED_BY_QIANKUN__) {
+//   __webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__;
+// }
+
+// 独立运行
 if (!window.__POWERED_BY_QIANKUN__) {
   render()
 }
+
 // 子组件的协议，必须暴露三个函数
 export async function bootstrap(props) {
   console.log('bootstrap函数：', props)
