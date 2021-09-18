@@ -162,15 +162,17 @@ export const constantRoutes = [
         meta: { title: 'External Link', icon: 'link' }
       }
     ]
-  },
+  }
 
-  // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  /*****************************该404路由设置会导致微前端页面跳出该子应用，一直去到404页面，看看用什么办法处理更合理*******************************/
+  // // 404 page must be placed at the end !!!
+  // { path: '*', redirect: '/subvue/404', hidden: true }
 ]
 
-let routesData = constantRoutes
+const routesData = constantRoutes
 
 if (window.__POWERED_BY_QIANKUN__) {
+  console.log('wwttt')
   routesData.map(item => {
     if (item.path.includes('/')) {
       item.path = '/subvue' + item.path

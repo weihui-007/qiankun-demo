@@ -48,19 +48,22 @@ let instance = null
 function render(props = {}) {
   const { container } = props
 
-  if (window.__POWERED_BY_QIANKUN__) {
-    router.beforeEach((to, from, next) => {
-      console.log('tototo:', to)
-      if (!to.path.includes('subvue')) {
-        next({
-          path: '/subvue' + to.path,
-          query: to.query
-        })
-      } else {
-        next()
-      }
-    })
-  }
+  // 用于子应用内部路由跳转逻辑处理，加上前缀
+  // if (window.__POWERED_BY_QIANKUN__) {
+  //   router.beforeEach((to, from, next) => {
+  //     console.log('tototo:', to, props, props.base)
+  //     if (!to.path.includes('/subvue') && window.appName === 'subvue') {
+  //       console.log('改了', to)
+  //       next({
+  //         path: '/subvue' + to.path,
+  //         query: to.query
+  //       })
+  //     } else {
+  //       console.log('不改', to)
+  //       next()
+  //     }
+  //   })
+  // }
 
   instance = new Vue({
     router,
@@ -85,6 +88,7 @@ export async function bootstrap(props) {
 }
 export async function mount(props) {
   console.log('mount函数：', props)
+  window.appName = 'subvue'
   render(props)
 }
 export async function unmount(props) {
