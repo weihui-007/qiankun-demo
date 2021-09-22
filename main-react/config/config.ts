@@ -86,7 +86,7 @@ export default defineConfig({
           entry: 'http://localhost:8092',
         },
       ],
-      sandbox: false,
+      // sandbox: false,
     },
   },
 });
