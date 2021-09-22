@@ -18,6 +18,11 @@ export default {
       changeOrigin: true,
       pathRewrite: { '^': '' },
     },
+    '/static/fonts': {
+      target: 'http://localhost:8092',
+      changeOrigin: true,
+      pathRewrite: { '^': '' },
+    },
   },
   test: {
     '/api/': {
