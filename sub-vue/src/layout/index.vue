@@ -1,18 +1,19 @@
 <template>
-  <div :class="classObj" class="app-wrapper">
+  <div :class="classObj" class="app-wrapper" v-if="!isQiank">
     <div
       v-if="device === 'mobile' && sidebar.opened"
       class="drawer-bg"
       @click="handleClickOutside"
     />
-    <sidebar class="sidebar-container" v-if="!isQiank" />
+    <sidebar class="sidebar-container" />
     <div class="main-container">
       <div :class="{ 'fixed-header': fixedHeader }">
-        <navbar v-if="!isQiank" />
+        <navbar />
       </div>
       <app-main />
     </div>
   </div>
+  <app-main class="qiankun-app-mian" v-else />
 </template>
 
 <script>
@@ -98,5 +99,10 @@ export default {
 
 .mobile .fixed-header {
   width: 100%;
+}
+</style>
+<style lang="scss">
+.qiankun-app-mian .app-container{
+  padding: 0;
 }
 </style>
