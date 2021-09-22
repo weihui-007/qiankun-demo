@@ -76,12 +76,6 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
         ]
       : [],
     menuHeaderRender: undefined,
-    onMenuHeaderClick: (e: any) => {
-      console.log('hhh88:', e);
-    },
-    onTopMixMenuHeaderClick: (e: any) => {
-      console.log('mmm77：', e);
-    },
     // 自定义 403 页面
     // unAccessible: <div>unAccessible</div>,
     ...initialState?.settings,

@@ -172,7 +172,6 @@ export const constantRoutes = [
 const routesData = constantRoutes
 
 if (window.__POWERED_BY_QIANKUN__) {
-  console.log('wwttt')
   routesData.map(item => {
     if (item.path.includes('/')) {
       item.path = '/subvue' + item.path
@@ -198,7 +197,5 @@ export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
 }
-
-console.log('rrttt:', router, constantRoutes, routesData)
 
 export default router
