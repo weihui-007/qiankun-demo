@@ -88,7 +88,7 @@ export async function bootstrap(props) {
 }
 export async function mount(props) {
   console.log('mount函数：', props)
-  window.appName = 'subvue'
+  // window.appName = 'subvue'
   render(props)
 }
 export async function unmount(props) {
